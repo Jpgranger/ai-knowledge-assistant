@@ -10,3 +10,13 @@ Thumbs.db
 
 # Logs
 npm-debug.log*
+
+# Uploads & generated files
+uploads/
+downloaded_test.txt
+test.txt
+
+# Accidental root-level files
+package-lock.json
+package.json
+-H

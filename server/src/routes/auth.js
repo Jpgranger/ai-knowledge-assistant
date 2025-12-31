@@ -1,5 +1,6 @@
 import express from "express";
 import bcrypt from "bcryptjs";
+import requireUser from "../middleware/auth.js";
 import jwt from "jsonwebtoken";
 import { pool } from "../db.js";
 
@@ -52,4 +53,8 @@ authRouter.post("/login", async (req, res) => {
   );
 
   res.json({ token, user: { id: user.id, email: user.email } });
+});
+
+authRouter.get("/me", requireUser, (req, res) => {
+  res.json({ user: req.user });
 });
